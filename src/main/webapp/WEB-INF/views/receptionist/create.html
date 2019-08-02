@@ -1,0 +1,51 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<fieldset>
+    <legend>Create Receptionist</legend>
+    <p><a href="/receptionists">Back to List</a></p>
+    <th:block th:if="${message}">
+        <p th:text="${message}" style="color: red"></p>
+    </th:block>
+    <form th:action="@{/create-receptionist}"
+          th:object="${receptionistForm}"
+          method="post"
+          enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td>Avatar</td>
+                <td><input type="file" th:field="*{avatar}"></td>
+            </tr>
+            <tr>
+                <td>ID</td>
+                <td><input type="text" th:field="*{id}"></td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" th:field="*{name}"></td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td><input type="text" th:field="*{age}"></td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td><input type="text" th:field="*{address}"></td>
+            </tr>
+            <tr>
+                <td>Hobby</td>
+                <td><input type="text" th:field="*{hobby}"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Create"></td>
+            </tr>
+        </table>
+    </form>
+</fieldset>
+</body>
+</html>
