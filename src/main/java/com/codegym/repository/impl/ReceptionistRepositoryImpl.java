@@ -39,15 +39,15 @@ public class ReceptionistRepositoryImpl implements ReceptionistRepository {
                 break;
             }
         }
-        receptionistList.set(id, element);
+        receptionistList.set(index, element);
     }
 
     @Override
     public void removeElement(int id) {
         for (int i = 0; i < receptionistList.size(); i++) {
             if (receptionistList.get(i).getId() == id) {
-                receptionistList.remove(id);
-                break;
+                receptionistList.remove(i);
+                return;
             }
         }
     }
@@ -56,7 +56,7 @@ public class ReceptionistRepositoryImpl implements ReceptionistRepository {
     public List<Receptionist> findByName(String name) {
         List<Receptionist> receptionists = new ArrayList<>();
         for (int i = 0; i < receptionistList.size(); i++) {
-            if (receptionistList.get(i).getName().contains(name)) {
+            if (receptionistList.get(i).getName().toLowerCase().contains(name.toLowerCase())) {
                 receptionists.add(receptionistList.get(i));
             }
         }

@@ -103,6 +103,7 @@ public class ReceptionistController {
         modelAndView.addObject("message", "Updated new receptionist information successfully");
         return modelAndView;
     }
+
     @GetMapping("/delete-receptionist/{id}")
     public ModelAndView showDeleteForm(@PathVariable int id) {
         Receptionist receptionist = receptionistService.findById(id);
@@ -140,5 +141,4 @@ public class ReceptionistController {
             return modelAndView;
         }
     }
-
 }
